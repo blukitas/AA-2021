@@ -168,8 +168,41 @@ Iniciativa global para disponibilizar datos.
 
 
 
+# Lecturas complementarias
+
+Papers de temas relacionados con sesgos en datos
+
+* [Data statements] Bender, Emily M., and Batya Friedman. "Data statements for natural language processing: Toward mitigating system bias and enabling better science." Transactions of the Association for Computational Linguistics 6 (2018): 587-604. https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00041/43452/Data-Statements-for-Natural-Language-Processing
+
+* [AI to reduce medical disparities] Chen, Irene Y., Peter Szolovits, and Marzyeh Ghassemi. "Can AI help reduce disparities in general medical and mental health care?." AMA journal of ethics 21, no. 2 (2019): 167-179. https://journalofethics.ama-assn.org/article/can-ai-help-reduce-disparities-general-medical-and-mental-health-care/2019-02
 
 
+
+# Conversaciones clase previa
+
+Definir problema, métrica y error- Pequeña reflexión sobre definicion de problema, como medirlo, y algunas cositas así. 
+
+Intro a lo que viene, sesgo. Discusión sobre que es un sesgo. Por ejemplo, raza en los jucios (Las personas negras son más acusadas, las personas transmiten su sesgo, si alimentamos el algoritmo con esos datos, el algoritmo se sesga). Otro en NLP se podría neutralizar el genero en algunas palabras. 
+
+Sesgo por los datos (Alimento el algoritmo con datos sesgados)
+Sesgo 'natural' (Hay casos donde la condicion de una persona puede ser una feature)
+Sesgo 'artificial' (Muestra desbalanceadas)
+
+Conocimiento experto ayuda a identificar y minimizar sesgos.
+
+--------------------------
+
+Interpretabilidad del algoritmo puede ser importante. En algunos casos necesitas poder explicarlo.
+
+
+
+-- Refuerzo
+Mitchell cap 13
+apaydin 19
+reinforcement learning. an introduction. Sutton. Barto
+Algorithms for reinforcement learning. SZepesvary 
+curso ucl reinforcement learning david silver
+cs229 stanford andrew ng
 
 
 
