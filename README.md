@@ -16,10 +16,10 @@ Las sincronicas van a ser el lunes para ambas comisiones. Tiene toda la pinta a 
 
 ## Profesores
 
-1 Dra Viviana Cotik
-2 Mg Guille Henrion
-3 Ing Leo Pepino (Ingeniero en sonido, untref, especializando en deep learning)
-4 Lic Gastón Bujía
+1. Dra Viviana Cotik
+2. Mg Guille Henrion
+3. Ing Leo Pepino (Ingeniero en sonido, untref, especializando en deep learning)
+4. Lic Gastón Bujía
 
 3 y 4 están en la parte práctica. 
 
