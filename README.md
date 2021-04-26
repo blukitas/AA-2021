@@ -44,4 +44,10 @@ PDF - Bajar y revisar
 * Reinforcement learning no llegamos
 * Aprendizaje no supervisado tampoco
 
+# Links utiles:
+
+* Videos en el campus oficialmente
+* Markdown: https://github.com/tchapi/markdown-cheatsheet/blob/master/README.md
+* Latex: https://www.hostmath.com/
+	
 
