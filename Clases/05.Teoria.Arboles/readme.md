@@ -13,26 +13,49 @@ Se lo puede definir como un problema de búsqueda de la hipotesis que más se ad
  
 ## Aprendizaje inducido
 
-## Inferencia lógica:
+### Inferencia lógica:
 
 *Inferir*: Establecer relación entre premisas y conclusiones
 
 * Razonamiento deductivo: p => q; p; q. De lo general a lo particular.
 * Razonamiento inductivo: p => q; r => q; s => q. De lo particular a lo general.
 
-## Aprendizaje supervisado:
+## Aprendizaje inductivo
+
+Consiste en construir un modelo general a partir de información específica.
+
+Principio de Aprendizaje Inductivo: Cualquier hipótesis (modelo) que aproxime bien a una función objetivo sobre un conjunto suficientemente grande de datos también aproximará bien a la función objetivo sobre datos no observados.
+
+
+### Aprendizaje supervisado:
 
 Dado una funcion objetivo desconocida, queremos aproximarla mediante una hipotesis o modelo.
 
 *Los algoritmos de aprendizaje automatico son procedimientos para entrenar modelos a partir de un conjunto de datos*
 
 
-## Sesgo inductivo:
+## Sesgo inductivo - Bias
 
-Hacemos una suposicion para facilitar el algoritmo de ML, reducir el espacio de búsqueda. Para hacerlo asumimos que las hipótesis tienen una forma en particular.
+Hacemos una suposicion para facilitar el algoritmo de ML, reducir el espacio de búsqueda. Para hacerlo asumimos que las hipótesis tienen una forma en particular. Un conjunto finito de datos no suele alcanzar para inferir un modelo.
 
-La reduccion de espacio de conceptos grandes a uno chico: sesgo inductivo (inductive bias). Todos los algoritmos de aprendizaje tiene sesgo inductivo.
+* El sesgo inductivo de un algoritmo de aprendizaje es el conjunto de afirmaciones que el algoritmo utiliza para construir un modelo.
+* El sesgo inductivo incluye:
+	* Forma de las hipótesis (número y tipo de parámetros);
+	* Características de funcionamiento del algoritmo (cómo recorre el espacio de hipótesis hasta elegir un único modelo).
 
+La reduccion de espacio de conceptos grandes a uno chico: sesgo inductivo (inductive bias). 
+
+_Todos los algoritmos de aprendizaje tiene sesgo inductivo._
+
+
+## Bibliografía
+
+* Mitchell, Cap. 2 - Leer todo. Incluyendo:
+	* Adquisición de conceptos como búsqueda
+	* Algoritmos
+		* FIND-S
+		* List-then-eliminate
+		* Eliminación de candidatos
 
 # Árboles de decisiones
 
@@ -52,6 +75,8 @@ Es un método que intenta, con la menor cantidad de reglas, clasificar. Es un m�
 * Hipotesis disyuntivas
 * Posibles atributos faltantes
 * Explicabilidad alta
+
+En lo médico y en riesgos crediticio suelen usarse por la explicabilidad, y la 'transparencia' para el negocio.
 
 ## Algoritmo
 
@@ -95,13 +120,14 @@ Valores(A): Posibles valores del atributo
 Nosotros queremos quedarnos con los atributos que mayor ganancia de información ofrecen. (Otra opción es usar Gain Ratio que corrige la preferencia de información en atributos con muchos valores).
 
 
-TODO: Hacer ejecicios de cálculo de entropía (En clase fue con el ejemplo del clima).
+**TODO**: Hacer ejecicios de cálculo de entropía (En clase fue con el ejemplo del clima).
+**TODO**: Como es el intervalo de cada medida de efectividad. Cuando es una entropia optima? Cuando es un gini optimo? 
 
 
 ### Sesgo inductivo
 (Capítulo 3 del mitchell)
  
-Hay muchos posibles árboles para un conjunto de datos, como elejimos una hipótesis por sobre las otras?
+Hay muchos posibles árboles para un conjunto de datos, _¿Cómo elejimos una hipótesis por sobre las otras?_
 
 * Preferencia por: 
 	* Árboles más bajos
@@ -110,10 +136,9 @@ Hay muchos posibles árboles para un conjunto de datos, como elejimos una hipót
 	* Preferencia la búsqueda incompleta en espacio de hipótesis completo. El sesgo es la preferencia por una hipótesis sobre otras. (Ej: ID3)
 	* Restriccion: Búsqueda completa en un espacio de hipótesis incompleto. Sesgo: Consecuencia de poder expresivo de la representación de hipótesis (Ej: CEA)
 * Navaja de Occam/Ockham: Se prefiere la hipótesis más corta que satisface a los datos
-
+	* “Pluralitas non est ponenda sine necessitate.” La pluralidad no debe postularse sin necesidad
 
 ## Overfitting
-
 
 Hay sobreajuste cuando el árbol es "demasiado" profundo. ¿Qué pasa si hay descripciones exactas de instancias únicas y aisladas?
 
@@ -121,14 +146,13 @@ Hay sobreajuste cuando el árbol es "demasiado" profundo. ¿Qué pasa si hay des
 
 Cuando sobre entreno, soy muy exacto en datos de entrenamiento y muy poco exacto en test. Más profundo el árbol, más chance de overfitting.
 
-### Soluciones: 
-
+**Soluciones**: 
 * Detener el crecimiento del árbol 
-* Hacer crecer el árbol y podarlo (Post-prune)
+* Hacer crecer el árbol y podarlo (Post-prune - Relacionado con el ccp_alpha en Skitlearn)
 
-### Prune
+### Reduced Error Pruning
 
-Uno un conjunto de validación, y consudero cada noto como candidato de pruning.
+Uno un conjunto de validación, y considero cada noto como candidato de pruning.
 
 1. Particiono datos en conjunto de train y test
 2. Repetir hasta que la poda sea perjudicial
@@ -158,6 +182,7 @@ Posibles estrategias:
 * Asignar el valor más común en entrenamiento
 * Asignar el valor más común entre los datos de entrenamiento que tienen la misma clasificación
 * Asignar una probabilidad basa en frecuencias observadas en valores de A en nodo N
+* Modelo que prediga (Knn que estima multivariado)
 
 ### Atributos con costo
 
@@ -208,6 +233,12 @@ Capítulos de libros:
 * Mitchell, Cap. 3
 * Alpaydin, Cap. 9
 * Marsland, Cap. 12
+
+Artículos:
+* Induction of Decision Trees. Quinlan. 
+	* http://hunch.net/~coms-4771/quinlan.pdf
+* Simplifying Decision Trees. Quinlan. 
+	* https://www.sciencedirect.com/science/article/pii/S0020737387800536
 
 # Referencia
 * Helper para formulas en latex
