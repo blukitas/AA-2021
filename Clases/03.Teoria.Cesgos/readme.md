@@ -44,7 +44,6 @@ Partes que nombramos:
 3) Formatos (Imagenes, señales, texto - tabulado, estructurado, libre, con modismos -, estructurados, IOT)
 
 
-
 ### Big data
 
 Procesar, almacenar, visualizar,
@@ -90,7 +89,8 @@ English 1999
 
 * -> Entra basura -> Sale basura -> *
 
-Consecuencias: 
+#### Consecuencias
+
 * Descreimiento
 * Insatisfaccion de clientes
 * Costos innecesarios
@@ -163,9 +163,36 @@ Iniciativa global para disponibilizar datos.
 
 ## Ética
 
+Big data ethics: sistematizar, defender, recomendar actitudes éticas en relación a los datos, en particular a los datos personales. 
 
+**Problemas éticos**:
+* Privacidad -> ¿Quién debería controlar acceso a los datos?
+* Ownership -> ¿Quién es el dueño de los datos, cuáles son las obligaciones de quienes generan y usan datos?
+* Reputación -> ¿Cómo podemos determinar que los datos son confiables?
+* Identidad -> La identidad de a quién se refieren los datos debería permanecer privada
 
+Algunas **instituciones** relacionadas:
+* The Institute for Ethical AI & Machine Learning
+* The Institute for Ethics and Emerging Technologies
 
+_Los sistemas son creados por humanos, que pueden tener sesgos._
+
+Posibles problemas:
+- **Datos**: mala calidad (no disponibilidad, cantidad inadecuada, mal balanceo, no actuales, formato, sesgos, no correctitud, no consistencia), errores en su estructuración, mala interpretación (ej, correlación no implica causalidad)
+- **Algoritmos**: parametrización, mala elección
+- **Capacidad de procesamiento**: Inadecuada
+- **Cuestiones éticas**
+
+**Correlación no implica causalidad**
+
+## Data science
+
+Habilidades requiere un data scientist:
+
+* Recolectar datos,
+* Saber interpretar los datos,
+* Organizar, resumir y analizar datos,
+* Sacar conclusiones válidas
 
 
 # Lecturas complementarias
@@ -176,6 +203,17 @@ Papers de temas relacionados con sesgos en datos
 
 * [AI to reduce medical disparities] Chen, Irene Y., Peter Szolovits, and Marzyeh Ghassemi. "Can AI help reduce disparities in general medical and mental health care?." AMA journal of ethics 21, no. 2 (2019): 167-179. https://journalofethics.ama-assn.org/article/can-ai-help-reduce-disparities-general-medical-and-mental-health-care/2019-02
 
+## Artículos:
+
+No hubo bibliografía de los libros de siempre, sino artículos
+
+* Nature. AI can be sexist and racist — it’s time to make it fair.
+	* https://www.nature.com/articles/d41586-018-05707-8
+* Datos generados por minuto:
+	* https://techstartups.com/2018/05/21/how-much-data-do-we-create-every-day-infographic/
+* De los estantes muy altos a la mayor probabilidad de morir en un choque (...).
+	* https://www.infobae.com/america/mundo/2019/03/02/de-los-estantes-muy-altos-a-la-mayorprobabilidad-de-morir-en-un-choque-el-mundo-medido-para-los-hombres-pone-en-peligro-a-lasmujeres/ht
+* Gender in the world of science https://www.nytimes.com/paidpost/lorealfondation/gender-in-the-world-of-science.html
 
 
 # Conversaciones clase previa
