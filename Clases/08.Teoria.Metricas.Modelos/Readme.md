@@ -77,7 +77,7 @@ No dice nada sobre los tipos de aciertos y de errores que tiene el modelo.
 **Precision** = TP / ( TP + FP )
 _De las instancias clasificadas como positivas, cuantas lo son_ (Cuán útiles son los resultados)
 
-**Recall** = TP / ( TP + FN )
+**Recall** = TP / ( TP + FN ) = **Sensitivity** = **TPR** (True positive rate) 
 _De las instancias positivas, cuantas fueron clasificadas como positivas_ (Cuán completos son los resultados)
 
 Accuracy es más simple. Precision y recall son más interesantes, nos dan más información sobre como fue el resultado. 
@@ -91,17 +91,39 @@ La generalización es <img src="https://render.githubusercontent.com/render/math
 * F_2 da más peso al recall
 * F_0.5 da más peso a precision
 
-Página 14 del ppt	
+**Specifity** = TN / (TN + FP) (True negative rate)
+**FPR** = FP / (FP + TN)
+
+**Curva ROC** 
+Gráfico TPR ( Recall ) Vs FPR
+Construcción: Variar el umbral de detección entre 0 y 100%. Para cada valor, calcular el TRP y FRP. 
+
+Ref interesante -> http://arogozhnikov.github.io/2015/10/05/roc-curve.html
+
+Una curva roc mala es una función identidad (Línea 45°). En el peor caso el **área abajo de la curva** (AUC) es 0.5, en el ideal es = 1.
+
+**Matriz de confusión n-aria** para comparar n contra n clases de salida. Las medidas precisión, recall, etc. sólo pueden formularse en forma binaria: cada clase contra el resto.
+
+### Factores a considerar en la elección de modelos
+
+* Tasa de error
+* Velocidad de entrenamiento y velocidad de test
+* Interpretabilidad (¿el conocimiento extraído del modelo puede ser validado por expertos?)
+* Facilidad de desarrollo
+
+## Experimentos de aprendizaje automático
+
+1. Establecer objetivo de estudio (error de un algoritmo, comparación dedos algoritmos, etc.)
+2. Seleccionar la métrica para evaluar performance
+3. Seleccionar factores importantes (dependen del punto 1): (hiperparámetros de un algoritmo, comparación de algoritmos: algoritmos a comparar)
+4. Elegir diseño experimental (división de conjunto en entrenamiento y test, cross validation, hiperparámetros: modificaciones aleatorias vs. grid search)
+5. Realización de experimento (uso de código testeado, reproducibilidad de resultados)
+6. Realizar análisis estadísticos de los datos
+7. Conclusiones: son sobre los datos utilizados. Realizar análisis de errores
 
 
+# Bibliografía
 
-
-
-
-
-
-
-
-
-
-
+Capítulos de libros:
+* ISLR, Cap. 2 (2.2)
+* Alpaydin, Cap. 19 (hasta 19.7 inclusive)
