@@ -33,7 +33,6 @@ Dado una funcion objetivo desconocida, queremos aproximarla mediante una hipotes
 
 *Los algoritmos de aprendizaje automatico son procedimientos para entrenar modelos a partir de un conjunto de datos*
 
-
 ## Sesgo inductivo - Bias
 
 Hacemos una suposicion para facilitar el algoritmo de ML, reducir el espacio de búsqueda. Para hacerlo asumimos que las hipótesis tienen una forma en particular. Un conjunto finito de datos no suele alcanzar para inferir un modelo.
@@ -74,9 +73,8 @@ Es un método que intenta, con la menor cantidad de reglas, clasificar. Es un m�
 * Valores de salida discretos
 * Hipotesis disyuntivas
 * Posibles atributos faltantes
-* Explicabilidad alta
-
-En lo médico y en riesgos crediticio suelen usarse por la explicabilidad, y la 'transparencia' para el negocio.
+* **Explicabilidad alta** 
+	* En lo médico y en riesgos crediticio suelen usarse por la explicabilidad, y la 'transparencia' para el negocio.
 
 ## Algoritmo
 
@@ -93,8 +91,19 @@ En lo médico y en riesgos crediticio suelen usarse por la explicabilidad, y la 
 ### ¿Cuál es el mejor atributo? (Punto 1)
 
 Medidas de impureza:
-* Entropía, Information Gain. Medida de incertidumbre.
+* Entropía, Information Gain 
+	* Medida de incertidumbre
+	* Si discrimina más objetos entonces reduce la entropía
+	* ID3 algorithm uses entropy to calculate the homogeneity of a sample
+		* 0.5 significa que las clases están balanceadas
+		* Más cerca de 1 o 0 significa que alguna clase prevalece
+	* https://www.saedsayad.com/decision_tree.htm
 * Gini, Gini Gain
+	* Gini impurity is a measure of how often a randomly chosen element from the set would be incorrectly labeled if it was randomly labeled according to the distribution of labels in the subset. 
+	* Gini impurity measures how heterogeneous or mixed some value is over a set. 
+	* The highest Gini score is 0.50
+	* 0 o 1 son buenos valores. Va a ser una impureza baja
+	* Ref: https://medium.com/@jason9389/gini-impurity-and-entropy-16116e754b27
 
 Medidas de efectividad:
 * Information gain: Reducción esperada de entropía por partir ejemplos basados en ese atributo
@@ -129,7 +138,7 @@ Nosotros queremos quedarnos con los atributos que mayor ganancia de información
  
 Hay muchos posibles árboles para un conjunto de datos, _¿Cómo elejimos una hipótesis por sobre las otras?_
 
-* Preferencia por: 
+* El algoritmo que vimos tiene preferencia por: 
 	* Árboles más bajos
 	* Atributos con information gain alto, cerca de la raíz
 * Sesgo: Un algoritmo puede privilegiar uno de los dos sesgos
@@ -137,6 +146,7 @@ Hay muchos posibles árboles para un conjunto de datos, _¿Cómo elejimos una hi
 	* Restriccion: Búsqueda completa en un espacio de hipótesis incompleto. Sesgo: Consecuencia de poder expresivo de la representación de hipótesis (Ej: CEA)
 * Navaja de Occam/Ockham: Se prefiere la hipótesis más corta que satisface a los datos
 	* “Pluralitas non est ponenda sine necessitate.” La pluralidad no debe postularse sin necesidad
+	* Las soluciones simples tienen más probabilidades de ser correctas
 
 ## Overfitting
 
@@ -171,10 +181,13 @@ Uno un conjunto de validación, y considero cada noto como candidato de pruning.
 
 ### Atributos continuos 
 
-Si tenemos un atributo numérico, lo discretizamos. 
-
-Buscamos un umbarl t (threshold en inglés) y discriminamos en función de si A < t.
-
+* Si tenemos un atributo numérico, lo discretizamos. 
+	* Existen extensiones para particionar atributos contínuos en múltiples intervalos
+* Buscamos un umbarl t (threshold en inglés) y discriminamos en función de si A < t.
+	* La idea es encontrar el umbral, que nos ayude a mejorar la toma de decisiones
+	* Por ejemplo encontrar un valor t, tal que podamos usarlo para decidir y tomar decisiones
+		* Umbral que maximice el information gain
+	* Puede ser útiles encontrar entre los casos el punto en el que cambia la categoría
 
 ### Atributos faltantes
 
@@ -212,18 +225,18 @@ Costo puede representar $, pero tambien tiempo, comodidad, complejidad.
 	
 ## Resumen árboles
 
-* aprendizaje supervisado.
-* para clasificación y regresión
-* fáciles de usar y de entender
-* buen método exploratorio para ver qué atributos son importantes
-* (tipo de generalización, sesgo, overfitting)
+* Aprendizaje supervisado.
+* Para clasificación y regresión
+* Fáciles de usar y de entender
+* Buen método exploratorio para ver qué atributos son importantes
+* (Otras cositas que se hablaron: Tipo de generalización, sesgo, overfitting)
 
 ### Ventajas:
 * Fácil de visualizar e interpretar
 * Permite usar atributos categóricos, continuos, binarios
 
 ### Desventajas:
-* Overfitting
+* Overfitting (Todos overfittean pero árboles hace overfit rápido)
 * Suelen necesitarse ensambles para tener mejor performance
 
 # Bibliografia
@@ -243,20 +256,3 @@ Artículos:
 # Referencia
 * Helper para formulas en latex
 <img src="https://render.githubusercontent.com/render/math?math=A">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
