@@ -236,7 +236,7 @@ Costo puede representar $, pero tambien tiempo, comodidad, complejidad.
 * Permite usar atributos categóricos, continuos, binarios
 
 ### Desventajas:
-* Overfitting (Todos overfittean pero árboles hace overfit rápido)
+* Overfitting (Todos overfite
 * Suelen necesitarse ensambles para tener mejor performance
 
 # Bibliografia

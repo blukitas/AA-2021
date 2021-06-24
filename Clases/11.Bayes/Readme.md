@@ -2,25 +2,51 @@
 
 ## Motivacion
 
+Usar la probabilidad para predecir (A diferencia de reglas o distancias).
+
 ## Modelos generativos
 
-* Los modelos **generativos** son una amplia clase de algoritmos de aprendizaje automático que hacen predicciones modelando la distribución conjunta P (y, x). 
-* Los modelos **discriminativos** son una clase de modelos de aprendizaje automático supervisados que hacen predicciones estimando la probabilidad condicional P (y | x). 
+* Los modelos **generativos** son una amplia clase de algoritmos de aprendizaje automático que hacen predicciones **modelando la distribución conjunta** P (y, x). 
+* Los modelos **discriminativos** son una clase de modelos de aprendizaje automático _supervisados_ que hacen predicciones **estimando la probabilidad condicional** P (y | x). 
 
 Para utilizar un modelo generativo, _se deben resolver más incógnitas_: hay que estimar la probabilidad de cada clase y la probabilidad de observación de la clase dada. Estas probabilidades se utilizan para calcular la probabilidad conjunta y, finalmente, la probabilidad conjunta se puede utilizar como sustituto de la probabilidad condicional para hacer predicciones. 
 
+Modelo generativo => Teorema de Bayes
+ 
 **Teorema de Bayes** => Divide el cálculo de la probabilidad conjunta P (y, x) en el cálculo de otros dos tipos de probabilidades: probabilidad de clase, P (y), y probabilidad de observación de clase dada, P (x | y). 
 
-Algunas suposiciones hacen que la estimación de P (x | y) sea manejable. El clasificador Naive Bayes puede servir como un ejemplo perfecto de un modelo generativo con tal suposición, lo que facilita el cálculo de P (x | y). Es decir, _tiene un supuesto de independencia entre las características_ xi,…, xn. 
+El tema con esto es la cantidad de probabilidades condicionales que debería calcular. El costo computacional se dispara.
 
-(**TBD** completar estas cosas con la clase o con el libro)
+Algunas suposiciones hacen que la estimación de P (x | y) sea manejable. El clasificador **Naive Bayes** puede servir como un ejemplo perfecto de un modelo generativo con tal suposición, lo que facilita el cálculo de P (x | y). Es decir, _tiene un supuesto de independencia entre las características_ xi,…, xn. 
+
+Naive bayes asume que hay independencia entre las observaciones. Eso es una asunción fuerte, pero sirve en la práctica, y lo hace manejable. La productoria se simplifica mucho => P(X | Y) = Productoria( P (X_i | Y )
+
+(**TBD** completar estas cosas con el libro)
 
 ## Naive Bayes
 
 El algoritmo bayes ingenuo asume que todas las funciones son independientes entre sí. Sino tendría que calcular todas las posibles configuraciones. 
 
-Maximum Likelihood Estimation VS Maximum A Posterior (**Ref:** https://towardsdatascience.com/mle-vs-map-a989f423ae5c )
-(**TBD** completar estas cosas con la clase o con el libro)
+P (X | y_i) = P (y_i | x1, x2, ..., xn) = ( P(x1, x2, ..., xn | y_i) * p(y_i) ) / p(x1, x2, ... , xn)
+
+La _P(x1, x2, ..., xn | y_i) * p(y_i)_ significa la probabilidad de una combinación específica de características dada una etiqueta de clase. Asumiendo independencia se transforma en el producto de la probabilidad de cada característica contra la partición.
+
+y = P(y) * productoria( P(x_i | y) )
+
+La función de probabilidad depende del tipo de datos:
+* Si binario => Bernoulli
+* Si discreto => Multinomial
+* Si continua => Gaussiana
+
+
+### Maximum Likelihood Estimation VS Maximum A Posterior 
+
+(**Ref:** https://towardsdatascience.com/mle-vs-map-a989f423ae5c )
+
+MAP => Máximo a posteriori. Asigno la clase del que tiene mayor probabilidad.
+MLE => ?
+
+(**TBD** completar estas cosas con el libro)
 
 
 ## Probabilistic graphical Model
@@ -44,10 +70,10 @@ Las redes bayesianas tienen como objetivo modelar la dependencia condicional y, 
 * https://www.coursera.org/specializations/probabilistic-graphical-models
 * http://ai.stanford.edu/~paskin/gm-short-course/lec2.pdf
 
-Las redes bayesianas satisfacen la propiedad local de Markov, que establece que un nodo es condicionalmente independiente de sus no descendientes dados sus padres. En el ejemplo anterior, esto significa que P(Sprinkler|Cloudy, Rain) = P(Sprinkler|Cloudy) ya que Sprinkler  es condicionalmente independiente de su no descendiente, Rain, dado Cloudy.
+Las redes bayesianas satisfacen la propiedad local de Markov, que establece que un nodo es condicionalmente independiente de sus no descendientes dados sus padres. 
 
 Formalmente, si existe una arista (A, B) en el gráfico que conecta las variables aleatorias A y B, significa que P (B | A) es un factor en la distribución de probabilidad conjunta, por lo que debemos conocer P (B | A) para todos los valores de B y A para realizar inferencias. 
-
+ 
 ### Patrones de razonamiento
 * Causal
 * Evidencial
@@ -55,6 +81,25 @@ Formalmente, si existe una arista (A, B) en el gráfico que conecta las variable
 
 
 ### Flujo de influencia probabilística
+
+
+### Aprendizaje de hiperparámetros
+
+Maxima verosimilitud => Busco obtener un hiperparametro que maximite la probailidad.  
+
+MLE => Estimador de maxima verosimilitud (Maximum likelyhood estimator)
+
+### Ventajas
+
+* Flexibilidad
+	* Decision-making
+	* Clasificación
+	* P(A|B)
+	* P(B|A)
+
+
+
+
 
 
 

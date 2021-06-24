@@ -18,9 +18,14 @@ Se prueban distintas configuraciones. Los datos de desarrollo se separan en:
 * (100-q) % para entrenamiento
 * q % para validación del modelo
 
-Una vez definido cuál es el mejor modelo se entrena con cjto. de desarrollo (también llamado de entrenamiento). Los datos se pueden separar al azar o con otro criterio, para evitar cualquier orden o estructura subyacente en los datos. 
+Una vez definido cuál es el mejor modelo se entrena con conjunto de desarrollo (también llamado de entrenamiento). Los datos se pueden separar al azar o con otro criterio, para evitar cualquier orden o estructura subyacente en los datos. 
 
 El azar puede no ser el mejor criterio. Los datos de entrenamiento y validación deben ser independientes entre sí; los datos pueden estar desbalanceados, tener orden temporal, etc.
+* Desbsalanceado -> podemos queres preservaar el desbalanceo, o bien podemos querer balancear
+	* Balancear se puede hacer de varias formas (under o over sampling)
+	* El desbalanceo te ensucia el accuracy (Alto porque una etiqueta monopoliza la muestra)
+	* SMOTE como un método de balanceo, la opcion por defecto de balanceo de sklearn
+	* Probablemente uno no vaya por un 50-50, porque se quiere respetar la desigualdad, pero si equilibrar ligeramente
 
 Resumen de esto:
 * Train
@@ -55,6 +60,7 @@ Exploramos un espacio de búsqueda (Siguiendo una lista/matriz de valores para l
 
 * Grid search: Buscar todas las posibles combinaciones.
 * Random search: Buscamos aleatoriamente combinaciones.
+* (Gradientes?
 
 Al terminar, nos quedamos con la combinación con mejor desempeño, y entrenamos un único modelo usando todos los datos. El objetivo es plantear un espacio de búsqueda, buscar teniendo métricas intermedias y luego continuar con un único modelo que sea el mejor.
 
@@ -70,15 +76,19 @@ La diferencia entre grid y random tiene que ver con completitud y uso de recurso
 |prediccion | Positivo 	|  Verdadero Positivo (TP) 	| Falso Positivo (FP) 		|
 |			| Negativo 	|  Falso Negativo (FN) 		| Verdadero negativo (TN) 	|
 
+**Error tipo I** -> Falso positivo 
+**Error tipo II** -> Falso negativo
+
+
 **Accuracy** = (TP + TN) / (TP + TN + FN + TN)
 
-No dice nada sobre los tipos de aciertos y de errores que tiene el modelo.
+No dice nada sobre los tipos de aciertos y de errores que tiene el modelo. Tiene bastantes problemas con datasets desbalanceados, el accuracy es alto pero se debe al desbalanceo.
 
 **Precision** = TP / ( TP + FP )
 _De las instancias clasificadas como positivas, cuantas lo son_ (Cuán útiles son los resultados)
 
 **Recall** = TP / ( TP + FN ) = **Sensitivity** = **TPR** (True positive rate) 
-_De las instancias positivas, cuantas fueron clasificadas como positivas_ (Cuán completos son los resultados)
+_De las instancias positivas, cuantas fueron clasificadas como positivas_ (Cuán completos son los resultados). Que porcentaje de cobertura, si recall es uno, es porque detecto todos. 
 
 Accuracy es más simple. Precision y recall son más interesantes, nos dan más información sobre como fue el resultado. 
 
@@ -86,7 +96,7 @@ Hay una variante más, que trabaja sobre precision y recall (Media armónica)
 
 **F-measure/F_1-score** = 2 * (Precision * Recall) / (Precisión + Recall)
 
-La generalización es <img src="https://render.githubusercontent.com/render/math?math=F_{\beta} = (1+\beta^2) \frac{Precision*Recall}({\beta^2*Precision) + Recall}"> 
+La generalización es <img src="https://render.githubusercontent.com/render/math?math=F_{\beta} = (1 + \beta^2) \frac{Precision*Recall}{ ( \beta^2*Precision) + Recall}"> 
 
 * F_2 da más peso al recall
 * F_0.5 da más peso a precision
@@ -117,7 +127,7 @@ Una curva roc mala es una función identidad (Línea 45°). En el peor caso el *
 2. Seleccionar la métrica para evaluar performance
 3. Seleccionar factores importantes (dependen del punto 1): (hiperparámetros de un algoritmo, comparación de algoritmos: algoritmos a comparar)
 4. Elegir diseño experimental (división de conjunto en entrenamiento y test, cross validation, hiperparámetros: modificaciones aleatorias vs. grid search)
-5. Realización de experimento (uso de código testeado, reproducibilidad de resultados)
+5. Realización de experimento (uso de código testeado, **reproducibilidad** de resultados)
 6. Realizar análisis estadísticos de los datos
 7. Conclusiones: son sobre los datos utilizados. Realizar análisis de errores
 

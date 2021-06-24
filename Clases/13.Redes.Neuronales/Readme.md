@@ -34,6 +34,8 @@ El **perceptrón** simple resuelve problemas linealmente separables. Funciona po
 	* Cada función tiene su utilidad y problemas donde funciona mejor.
 
 **Arquitecturas** 
+Si la red neuronal es muy chiquita podría parecerse a una regresión lineal, o funciones de Machine learning que ya existian.
+
 Estándares
 * Feed forward
 * Perceptrón mutilcapa
@@ -41,10 +43,13 @@ Estándares
 
 Profundas:
 * Convolutional Neural Networks (CNN) -> Imágenes
-	* https://towardsdatascience.com/a-simple-cnn-multi-image-classifier-31c463324fa
+	* Invarianza a la traslación (Por parameter sharing)
+	* Campo receptivo (Toma zonas)
+	* ref: https://towardsdatascience.com/a-simple-cnn-multi-image-classifier-31c463324fa
 	* Opciones?
-		* Pooling 
+		* Pooling (Juntan la matriz esa que va convolucionando)
 		* Convolución
+	* Tienden a armarse capas de redes convolucionales, capas de pooling
 * Recurrent Neural Networks (RNN) -> Texto, habla
 	* https://towardsdatascience.com/recurrent-neural-networks-rnns-3f06d7653a85
 	* http://karpathy.github.io/2015/05/21/rnn-effectiveness/
@@ -60,9 +65,17 @@ Vienen pegando cada vez más, porque cada vez más datos, cada vez mpas poder de
 
 ## Parámetros de una red neuronal
 
-* Función de activación
+* Función de activación (Relacionada con los valores que esperamos de salida)
+	- Cual es mejor? Es heurístico, pero si hay algunas propiedades.
+	- Para regresiones queremos devolver una probabilidad, pero generalmente son probabilidades excluyentes (Si los datos no pueden tener más de una etiqueta)
+		- Softmax - Regresión logistica multinominal
 * Inicialización de pesos
 * Cantidad de capas ocultas
+	- Muchas en serie o pocas capas
+	- En teoria con dos capas puede aproximar cualquier cosa
+	- Una red muy profunda anda mejor que una sola capa, con menos parametros
+		- Porque la capacidad de expresión es mucho mucho mayor
+		- Las capas van ayudando a extraer atributos (En lugar de gente experta armando atributos, la red neuronal va abstrayendo conceptos)
 * Conexión entre capas
 * Tasa de aprendizaje (learning rate)
 
