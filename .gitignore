@@ -130,3 +130,7 @@ dmypy.json
 
 # Video
 *.mp4
+
+*.csv
+*.pkl
+*.tar.gz
